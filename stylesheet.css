@@ -154,11 +154,25 @@ h2 {
     margin: 0;
 }
 
-.image-welcome{
+.image-welcome1, .image-welcome2{
     display: block;
     width: 100%;
     height: 186px;
-    margin: 0;
+    margin: 0 auto;
+}
+
+.image-welcome1{
+    background-image: url("Assets/image_assets/sunflower.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size:cover;
+}
+
+.image-welcome2{
+    background-image: url("Assets/image_assets/woman.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size:cover;
 }
 
 /*-----------------------------------------*/
