@@ -10,18 +10,26 @@
 html {
     padding: 0;
     margin: 0;
+
     font-size: 100px;
+    overflow-x: hidden;
 }
 
 body {
-    padding: 30px;
-    padding-top: 10px;
-    padding-bottom: 0px;
     margin: 0;
+    padding: 0;
+    width: 100%;
+
 }
 
 h1 {
     font-size: .3rem;
+}
+
+
+p {
+    font-size: .16rem;
+    text-align: center;
 }
 
 main h1,
@@ -36,6 +44,10 @@ li {
 
 header {
     height: 45px;
+
+    padding: 30px;
+    padding-top: 10px;
+    padding-bottom: 0px;
 }
 
 nav {
@@ -67,17 +79,206 @@ nav {
 
 
 main {
-    width: 100%;
-    min-height: 200px;
+    width: auto;
+    min-height: 500px;
+
+    padding: 30px;
+    padding-top: 10px;
+    padding-bottom: 0px;
+
+    z-index: 10000;
 
 }
 
+.page-heading {
+    text-align: center;
+    color: #9cb18c;
+    font-size: .49rem;
+    font-family: Zanzabar;
+    font-weight: normal;
+    margin: 10px;
+}
+
+/*MAIN PAGE---------------------------------*/
+
+.zanzabar_h1 {
+    font-family: Zanzabar;
+    font-size: .74rem;
+    text-align: center;
+    color: #9cb18c;
+    font-weight: 100;
+}
+
+.welcome-container {
+    height: 550px;
+    width: 100%;
+
+    background-color: none;
+    z-index: 10;
+    position: relative;
 
 
+}
+
+.welcome-background {
+    display: block;
+    position: absolute;
+    top: 360px;
+    width: 100%;
+
+    width: 500px;
+    z-index: 1;
+}
+
+.moreabout-button {
+    width: 274px;
+    height: 46px;
+    background-color: #ebbbbb;
+    margin: 0 auto;
+
+    border-radius: 100px;
+    display: flex;
+
+    margin-top: 50px;
+}
+
+.moreabout-text {
+    text-align: center;
+    align-self: center;
+    margin: auto;
+    color: #ffffff;
+    font-size: .2rem;
+}
+
+.video {
+    width: 100%;
+    height: 240px;
+    background: blue;
+    z-index: 1000;
+    position: relative;
+}
+
+section.gallery {
+    margin: 0;
+    height: 240px;
+    background-color: #ebbbbb;
+}
+
+section.shop {
+    margin: 0;
+    height: 240px;
+    background-color: #9cb18c;
+}
+
+h2 {
+    font-size: .43rem;
+    font-family: Zanzabar;
+    text-align: center;
+    color: #000000;
+    font-weight: 100;
+    margin: 0;
+}
+
+.image-welcome1,
+.image-welcome2 {
+    display: block;
+    width: 100%;
+    height: 186px;
+    margin: 0 auto;
+}
+
+.image-welcome1 {
+    background-image: url("Assets/image_assets/sunflower.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+.image-welcome2 {
+    background-image: url("Assets/image_assets/woman.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+
+/*-----------------------------------------*/
+/*ABOUT PAGE-----------------------------------------*/
+
+.about-background {
+    display: block;
+    position: absolute;
+    top: 300px;
+    width: 100%;
+
+    z-index: 1;
+}
+
+.about-container {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.about-image {
+    display: block;
+    width: 145px;
+    height: 192px;
+    background-color: #d1d1d1;
+    float: left;
+    margin-right: 20px;
+    z-index: 1;
+}
+
+.about-shortText,
+.about-longText {
+    text-align: left;
+    color: #000000;
+    line-height: 1.38;
+}
+
+.about-longText {
+    display: inline-block;
+}
+
+/*-----------------------------------------*/
+
+/*CONTACT PAGE-----------------------------------------*/
+
+.social-media-contact {
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: row;
+    width: 50%;
+    align-items: center;
+    margin: auto;
+}
+
+.social-media-contact img {
+    flex: 1 1 auto;
+    text-align: center;
+}
+
+.contact-info {
+    display: flex;
+    width: 100%;
+    margin: auto;
+}
+
+.map-container {
+    width: 100%;
+    height: 165px;
+    background-color: #d1d1d1;
+}
+
+/*-----------------------------------------*/
 
 footer {
     display: flex;
-    width: 100%;
+    width: auto;
+
+    padding: 30px;
+    padding-top: 10px;
+    padding-bottom: 0px;
     /*    background-color: #c6c6c6;*/
 }
 
@@ -96,11 +297,13 @@ footer {
 }
 
 .sitemap {
-    flex: 1 50%;
+    flex: 1;
+    width: 50%;
 }
 
 .contact {
     text-align: right;
+    width: 50%;
 }
 
 ul {
@@ -110,16 +313,17 @@ ul {
 
 .social-media {
     padding: 0;
-    margin: 0;
     display: flex;
     flex-direction: row;
-    width: 100%;
+    margin: 5px;
+    margin-left: auto;
+    width: auto;
+    align-items: center;
+
 }
 
 .social-media img {
     flex: 1 1 auto;
-    text-align: center;
-    margin: 5px;
 }
 
 .facebook-foot {
