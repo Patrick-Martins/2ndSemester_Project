@@ -32,6 +32,10 @@ li {
 
 header {
     height: 45px;
+
+    padding: 30px;
+    padding-top: 10px;
+    padding-bottom: 0px;
 }
 
 nav {
@@ -64,13 +68,24 @@ nav {
 
 main {
     width: auto;
+    min-height: 500px;
 
     padding: 30px;
     padding-top: 10px;
     padding-bottom: 0px;
 
+    z-index: 10000;
+
 }
 
+.page-heading {
+    text-align: center;
+    color: #9cb18c;
+    font-size: .49rem;
+    font-family: Zanzabar;
+    font-weight: normal;
+    margin: 10px;
+}
 
 /*MAIN PAGE---------------------------------*/
 
@@ -101,8 +116,6 @@ main {
 
     width: 500px;
     z-index: 1;
-
-
 }
 
 .moreabout-button {
@@ -154,32 +167,98 @@ h2 {
     margin: 0;
 }
 
-.image-welcome1, .image-welcome2{
+.image-welcome1,
+.image-welcome2 {
     display: block;
     width: 100%;
     height: 186px;
     margin: 0 auto;
 }
 
-.image-welcome1{
+.image-welcome1 {
     background-image: url("Assets/image_assets/sunflower.png");
     background-repeat: no-repeat;
     background-position: center;
-    background-size:cover;
+    background-size: cover;
 }
 
-.image-welcome2{
+.image-welcome2 {
     background-image: url("Assets/image_assets/woman.png");
     background-repeat: no-repeat;
     background-position: center;
-    background-size:cover;
+    background-size: cover;
+}
+
+/*-----------------------------------------*/
+/*ABOUT PAGE-----------------------------------------*/
+
+.about-background {
+    display: block;
+    position: absolute;
+    top: 300px;
+    width: 100%;
+
+    z-index: 1;
+}
+
+.about-container {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.about-image {
+    display: block;
+    width: 145px;
+    height: 192px;
+    background-color: #d1d1d1;
+    float: left;
+    margin-right: 20px;
+    z-index: 1;
+}
+
+.about-shortText,
+.about-longText {
+    text-align: left;
+    color: #000000;
+    line-height: 1.38;
+}
+
+.about-longText {
+    display: inline-block;
 }
 
 /*-----------------------------------------*/
 
+/*CONTACT PAGE-----------------------------------------*/
 
+.social-media-contact {
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: row;
+    width: 50%;
+    align-items: center;
+    margin: auto;
+}
 
+.social-media-contact img {
+    flex: 1 1 auto;
+    text-align: center;
+}
 
+.contact-info {
+    display: flex;
+    width: 100%;
+    margin: auto;
+}
+
+.map-container {
+    width: 100%;
+    height: 165px;
+    background-color: #d1d1d1;
+}
+
+/*-----------------------------------------*/
 
 footer {
     display: flex;
@@ -206,11 +285,13 @@ footer {
 }
 
 .sitemap {
-    flex: 1 50%;
+    flex: 1;
+    width: 50%;
 }
 
 .contact {
     text-align: right;
+    width: 50%;
 }
 
 ul {
@@ -220,16 +301,17 @@ ul {
 
 .social-media {
     padding: 0;
-    margin: 0;
     display: flex;
     flex-direction: row;
-    width: 100%;
+    margin: 5px;
+    margin-left: auto;
+    width: auto;
+    align-items: center;
+
 }
 
 .social-media img {
     flex: 1 1 auto;
-    text-align: center;
-    margin: 5px;
 }
 
 .facebook-foot {
