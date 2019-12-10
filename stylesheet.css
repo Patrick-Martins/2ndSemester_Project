@@ -407,17 +407,17 @@ ul {
     grid-gap: .3em;
 }
 
-.oil:hover {
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(Assets/oil.png);
-    background-size: cover;
+.type:hover {
+    cursor: pointer;
 }
 
 .type h2 {
-    font-size: .35rem;
+    font-size: 5vw;
+    font-family: 'Nunito Sans', sans-serif;
     text-align: center;
     color: white;
     font-weight: 600;
-    padding-top: 30%;
+    padding-top: 40%;
     text-shadow: 2px 2px 5px black;
 }
 
