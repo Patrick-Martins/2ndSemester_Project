@@ -111,6 +111,7 @@ nav {
 .sidenav .categories{
     width: 100%;
     text-align: center;
+    z-index: 1000;
 }
 
 .sidenav .social-media {
@@ -389,7 +390,7 @@ ul {
     flex-direction: row;
     margin: 5px;
     margin-left: auto;
-    width: auto;
+    width: 150px;
     align-items: center;
 
 }
@@ -479,18 +480,40 @@ ul {
     grid-gap: .3em;
 }
 
-.oil:hover {
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(Assets/oil.png);
-    background-size: cover;
+.type:hover {
+    cursor: pointer;
 }
 
 .type h2 {
-    font-size: .35rem;
+    font-size: 5vw;
+    font-family: 'Nunito Sans', sans-serif;
     text-align: center;
     color: white;
     font-weight: 600;
-    padding-top: 30%;
+    padding-top: 40%;
     text-shadow: 2px 2px 5px black;
 }
 
 /*-------GALLERY---------*/
+
+.filterGallery {
+    margin: auto;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    background-color: transparent;
+    font-size: .15rem;
+    margin-bottom: 1em;
+    display: block;
+}
+.gallery{
+    column-count: 2;
+    column-gap: .1em;
+    width: 70%;
+    margin: auto;
+}
+.galleryImg{
+    max-width: 100%;
+    display: block;
+    margin-bottom: .1em;
+}
