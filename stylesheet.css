@@ -434,47 +434,6 @@ ul {
     padding-bottom: 100%;
 }
 
-.oil {
-    background-image: url(Assets/oil.png);
-}
-
-.oil:hover {
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(Assets/oil.png);
-    background-size: cover;
-}
-
-.oil:hover {
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(Assets/oil.png);
-    background-size: cover;
-}
-
-.wall {
-    background-image: url(Assets/wall.png);
-}
-
-.wall:hover {
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(Assets/wall.png);
-    background-size: cover;
-}
-
-.acrylic {
-    background-image: url(Assets/acrylic.png);
-}
-
-.acrylic:hover {
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(Assets/acrylic.png);
-    background-size: cover;
-}
-
-.custom {
-    background-image: url(Assets/custom.png);
-}
-
-.custom:hover {
-    background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(Assets/custom.png);
-    background-size: cover;
-}
-
 .types {
     display: grid;
     grid-template-columns: 1fr 1fr;
