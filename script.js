@@ -75,6 +75,7 @@ function galleryForEach(item) {
 
 function showGalleryItem(img) {
 
+
     if (category == 7) {
         const template = document.querySelector(".shopTemplate").content;
         const templateCopy = template.cloneNode(true);
@@ -93,6 +94,7 @@ function showGalleryItem(img) {
         const imgPath = img._embedded["wp:featuredmedia"][0].media_details.sizes.full.source_url;
         templateCopy.querySelector("img").setAttribute("src", imgPath);
         document.querySelector(".gallery").appendChild(templateCopy);
+
     }
 }
 
