@@ -1,3 +1,4 @@
+
 window.addEventListener("DOMContentLoaded", init);
 
 function init() {
@@ -24,7 +25,9 @@ const filter = document.querySelector(".filterGallery");
 function getCategoryData() {
     const urlParams = new URLSearchParams(window.location.search);
     const category = urlParams.get("category");
-    fetch("http://pjmelite.dk/KEA_2Semester/2Sem_Project/wp_2ndSemProj/wp-json/wp/v2/painting?_embed&categories=" + category).then(res => res.json()).then(showStuff);
+
+
+    fetch("http://pjmelite.dk/KEA_2Semester/2Sem_Project/wp_2ndSemProj/wp-json/wp/v2/gallery_element?_embed&categories=" + category).then(res => res.json()).then(showStuff);
 }
 
 function showStuff(data) {
@@ -72,11 +75,27 @@ function galleryForEach(item) {
 
 function showGalleryItem(img) {
 
+
+    if (category == 7) {
+        const template = document.querySelector(".shopTemplate").content;
+        const templateCopy = template.cloneNode(true);
+
+        const elementContainer = templateCopy.querySelector(".type");
+        const imgPath = element._embedded["wp:featuredmedia"][0].media_details.sizes.full.source_url;
+        elementContainer.style.backgroundImage = `url(${imgPath})`;
+        templateCopy.querySelector(".shopElemTitle").textContent = element.title.rendered;
+        templateCopy.querySelector(".shopElemPrice").textContent = element.price;
+
+        document.querySelector(".shop-container").appendChild(templateCopy);
+    } else {
+
         const template = document.querySelector("template").content;
         const templateCopy = template.cloneNode(true);
         const imgPath = img._embedded["wp:featuredmedia"][0].media_details.sizes.full.source_url;
         templateCopy.querySelector("img").setAttribute("src", imgPath);
         document.querySelector(".gallery").appendChild(templateCopy);
+
+    }
 }
 
 const hamburguerBTN = document.getElementById("hamburguer");

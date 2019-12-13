@@ -108,14 +108,14 @@ nav {
     color: #f1f1f1;
 }
 
-.sidenav .categories{
+.sidenav .categories {
     width: 100%;
     text-align: center;
     z-index: 1000;
 }
 
 .sidenav .social-media {
-   margin: auto;
+    margin: auto;
 }
 
 
@@ -506,14 +506,42 @@ ul {
     margin-bottom: 1em;
     display: block;
 }
-.gallery{
+
+.gallery {
     column-count: 2;
     column-gap: .1em;
     width: 70%;
     margin: auto;
 }
-.galleryImg{
+
+.galleryImg {
     max-width: 100%;
     display: block;
     margin-bottom: .1em;
 }
+
+/*--------------------------------------------*/
+
+/*SHOP --------------------------------------------*/
+.shop-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-gap: 10px;
+}
+
+.shopElem {
+    display: flex;
+    flex-direction: column;
+}
+
+.shopElemTitle,
+.shopElemPrice {
+    font-size: 16px;
+}
+
+.shopElem h2 {
+    font-family: 'Nunito Sans', sans-serif;
+    text-align: left;
+}
+
+/*--------------------------------------------*/
