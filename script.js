@@ -18,6 +18,8 @@ function init() {
 function getCategoryData() {
     const urlParams = new URLSearchParams(window.location.search);
     const category = urlParams.get("category");
+
+
     fetch("http://pjmelite.dk/KEA_2Semester/2Sem_Project/wp_2ndSemProj/wp-json/wp/v2/painting?_embed&categories=" + category).then(res => res.json()).then(showStuff);
 }
 
@@ -26,17 +28,40 @@ function showStuff(data) {
     data.forEach(showElements);
 }
 
-function showElements(element){
+function showElements(element) {
     console.log(element);
-    const template = document.querySelector(".galleryTemplate").content;
-    const templateCopy = template.cloneNode(true);
+    const urlParams = new URLSearchParams(window.location.search);
+    const category = urlParams.get("category");
 
-    const elementContainer = templateCopy.querySelector(".type");
-    const imgPath = element._embedded["wp:featuredmedia"][0].media_details.sizes.full.source_url;
-    elementContainer.style.backgroundImage = `url(${imgPath})`;
-    templateCopy.querySelector("h2").textContent = element.title.rendered;
 
-    document.querySelector(".types").appendChild(templateCopy);
+    if (category == 5) {
+        const template = document.querySelector(".galleryTemplate").content;
+        const templateCopy = template.cloneNode(true);
+
+        const elementContainer = templateCopy.querySelector(".type");
+        const imgPath = element._embedded["wp:featuredmedia"][0].media_details.sizes.full.source_url;
+        elementContainer.style.backgroundImage = `url(${imgPath})`;
+
+        elementContainer.addEventListener("click", function () {
+            window.location.href = "sub-gallery?category=" + element.id;
+        })
+        templateCopy.querySelector("h2").textContent = element.title.rendered;
+
+        document.querySelector(".types").appendChild(templateCopy);
+    } else if (category == 7) {
+        const template = document.querySelector(".shopTemplate").content;
+        const templateCopy = template.cloneNode(true);
+
+        const elementContainer = templateCopy.querySelector(".type");
+        const imgPath = element._embedded["wp:featuredmedia"][0].media_details.sizes.full.source_url;
+        elementContainer.style.backgroundImage = `url(${imgPath})`;
+        templateCopy.querySelector(".shopElemTitle").textContent = element.title.rendered;
+        templateCopy.querySelector(".shopElemPrice").textContent = element.price;
+
+        document.querySelector(".shop-container").appendChild(templateCopy);
+    }
+
+
 }
 
 const hamburguerBTN = document.getElementById("hamburguer");
