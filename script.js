@@ -43,6 +43,8 @@ function showElements(element) {
     const templateCopy = template.cloneNode(true);
 
     const elementContainer = templateCopy.querySelector(".type");
+    //console.log("hey");
+    //console.log(element._embedded["wp:featuredmedia"][0].media_details);
     const imgPath = element._embedded["wp:featuredmedia"][0].media_details.sizes.full.source_url;
     elementContainer.style.backgroundImage = `url(${imgPath})`;
     templateCopy.querySelector("h2").textContent = element.title.rendered;
@@ -71,9 +73,15 @@ function showGallery() {
 
 function galleryForEach(item) {
     console.log(item);
+    item.forEach(showGalleryItem);
+
 }
 
-function showGalleryItem(img) {
+function showGalleryItem(element) {
+
+    console.log("showgallery");
+    const urlParams = new URLSearchParams(window.location.search);
+    const category = urlParams.get("category");
 
 
     if (category == 7) {
@@ -91,7 +99,7 @@ function showGalleryItem(img) {
 
         const template = document.querySelector("template").content;
         const templateCopy = template.cloneNode(true);
-        const imgPath = img._embedded["wp:featuredmedia"][0].media_details.sizes.full.source_url;
+        const imgPath = element._embedded["wp:featuredmedia"][0].media_details.sizes.full.source_url;
         templateCopy.querySelector("img").setAttribute("src", imgPath);
         document.querySelector(".gallery").appendChild(templateCopy);
 
