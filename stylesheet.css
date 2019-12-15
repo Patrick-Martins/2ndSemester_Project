@@ -480,6 +480,30 @@ ul {
     margin-bottom: .1em;
 }
 
+.bg{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+.mdlImg{
+    max-width: 90%;
+    display: block;
+    margin: auto;
+}
+
+.hide{
+    display: none;
+}
+
+.open{
+    overflow-y: hidden;
+}
 /*--------------------------------------------*/
 
 /*SHOP --------------------------------------------*/
