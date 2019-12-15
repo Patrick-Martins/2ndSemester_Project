@@ -436,6 +436,7 @@ ul {
 
 .types {
     display: grid;
+    margin: auto;
     grid-template-columns: 1fr 1fr;
     grid-gap: .3em;
 }
@@ -470,7 +471,6 @@ ul {
 .gallery {
     column-count: 2;
     column-gap: .1em;
-    width: 70%;
     margin: auto;
 }
 
@@ -480,8 +480,8 @@ ul {
     margin-bottom: .1em;
 }
 
-.bg{
-    position: absolute;
+.bg {
+    position: fixed;
     display: flex;
     flex-direction: column;
     top: 0;
@@ -491,19 +491,20 @@ ul {
     background-color: rgba(0, 0, 0, 0.9);
 }
 
-.mdlImg{
+.mdlImg {
     max-width: 90%;
     display: block;
     margin: auto;
 }
 
-.hide{
+.hide {
     display: none;
 }
 
-.open{
+.open {
     overflow-y: hidden;
 }
+
 /*--------------------------------------------*/
 
 /*SHOP --------------------------------------------*/
@@ -529,3 +530,111 @@ ul {
 }
 
 /*--------------------------------------------*/
+@media screen and (max-width:640px) {
+
+    .gallery,
+    .types {
+        width: 100%;
+    }
+
+    .contactText,
+    .contactContainer {
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+}
+
+@media screen and (min-width:640px) and (max-width:900px) {
+
+    .gallery,
+    .types {
+        width: 70%;
+    }
+
+    .type h2 {
+        font-size: 3.5vw;
+    }
+
+    .mdlImg {
+        max-width: 80%;
+    }
+
+    .contactText,
+    .contactContainer {
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+}
+
+@media screen and (min-width:900px) and (max-width:1024px) {
+
+    .gallery,
+    .types {
+        width: 60%;
+    }
+
+    .type h2 {
+        font-size: 3vw;
+    }
+
+    .mdlImg {
+        max-width: 70%;
+    }
+
+    .contactContainer {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .contactText {
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+
+    .contact-info {
+        flex-direction: column;
+    }
+
+    .contact-info .contact,
+    .contact-info .sitemap {
+        margin: auto;
+    }
+}
+
+@media screen and (min-width:1024px) {
+    .gallery {
+        width: 70%;
+        column-count: 3;
+    }
+
+    .types {
+        width: 50%;
+    }
+
+    .type h2 {
+        font-size: 2.5vw;
+    }
+
+    .mdlImg {
+        max-width: 60%;
+    }
+
+    .contactContainer {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .contactText {
+        display: grid;
+        grid-template-columns: 1fr;
+    }
+
+    .contact-info {
+        flex-direction: column;
+    }
+
+    .contact-info .contact,
+    .contact-info .sitemap {
+        margin: auto;
+    }
+}
