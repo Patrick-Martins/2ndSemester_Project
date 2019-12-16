@@ -3,18 +3,18 @@ window.addEventListener("DOMContentLoaded", init);
 function init() {
     const urlParams = new URLSearchParams(window.location.search);
     //grab id=something from the url (it might not exist)
-    const id = urlParams.get("id");
     const category = urlParams.get("category");
 
 
-    if (id) {
-        getEventData();
-    } else if (category) {
+    if (category) {
         if (category == 5) {
             getCategoryData();
         } else {
-            getFilterData();
             showGallery();
+            if (document.querySelector(".filterGallery")) {
+                getFilterData();
+                getFilter();
+            }
         }
     }
 }
@@ -136,10 +136,13 @@ function filtering(optionValue) {
         document.getElementById("filter").value = optionValue.title.rendered;
     }
 }
-const filter = document.getElementById("filter");
-filter.addEventListener("change", function () {
-    fetch("http://pjmelite.dk/KEA_2Semester/2Sem_Project/wp_2ndSemProj/wp-json/wp/v2/gallery_element?_embed&categories=5").then(res => res.json()).then(needToCompare);
-})
+
+function getFilter() {
+    const filter = document.getElementById("filter");
+    filter.addEventListener("change", function () {
+        fetch("http://pjmelite.dk/KEA_2Semester/2Sem_Project/wp_2ndSemProj/wp-json/wp/v2/gallery_element?_embed&categories=5").then(res => res.json()).then(needToCompare);
+    })
+}
 
 function needToCompare(data) {
     data.forEach(compare);
