@@ -227,6 +227,7 @@ main {
 }
 
 .video {
+    display: block;
     width: 100%;
     height: 240px;
     background: blue;
@@ -275,6 +276,30 @@ h2 {
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
+}
+
+.welcome-container-button {
+    display: flex;
+    flex-direction: column;
+    width: 100px;
+    margin: 0 auto;
+}
+
+.welcome-container-button::after {
+    content: " ";
+    display: block;
+    height: 3px;
+    background: black;
+    width: 55px;
+    margin: 0 auto;
+}
+
+.welcome-container-button h2 {
+    margin: auto;
+    font-family: "NunitoSans";
+    font-size: 19px;
+    font-weight: normal;
+    color: #000000;
 }
 
 /*-----------------------------------------*/
@@ -549,7 +574,7 @@ ul {
 
 .sub-shop-main .shop-painting-title {
     text-align: left;
-    font-family: NunitoSans;
+    font-family: 'Nunito Sans', sans-serif;
     font-size: 26px;
     font-weight: 900;
     color: #000000;
@@ -557,7 +582,7 @@ ul {
 
 .sub-shop-main .shop-painting-description {
     text-align: left;
-    font-family: NunitoSans;
+    font-family: 'Nunito Sans', sans-serif;
     font-size: 16px;
     font-weight: normal;
     color: #000000;
@@ -565,7 +590,7 @@ ul {
 
 .sub-shop-main .shop-painting-price {
     text-align: left;
-    font-family: NunitoSans;
+    font-family: 'Nunito Sans', sans-serif;
     font-size: 16px;
     font-weight: 600;
     color: #000000;
@@ -583,7 +608,7 @@ ul {
 
 .contact-button p {
     margin: auto;
-    font-family: NunitoSans;
+    font-family: 'Nunito Sans', sans-serif;
     font-size: 20px;
     font-weight: bold;
     color: #ffffff;
@@ -709,6 +734,70 @@ ul {
         grid-template-columns: 40% 60%;
         grid-gap: .5em;
     }
+
+
+    /*   MAIN PAGE ------------------------------------*/
+
+    .welcome-container2 {
+        width: 80%;
+        margin: 30px auto;
+        display: grid;
+        grid-gap: 0px;
+        grid-row-gap: 20px;
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas:
+            "image-welcome1 gallery-index"
+            "shop image-welcome2"
+        ;
+    }
+
+    .image-welcome1 {
+        height: 100%;
+        grid-area: image-welcome1;
+        margin: auto;
+    }
+
+    .image-welcome2 {
+        height: 100%;
+        grid-area: image-welcome2;
+        margin: auto;
+    }
+
+    .gallery-index {
+        grid-area: gallery-index;
+    }
+
+    .shop {
+        grid-area: shop;
+    }
+
+    .video {
+        position: static;
+    }
+
+    main.main-page {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .welcome-background {
+        height: 50%;
+        width: 50%;
+        display: block;
+        position: inherit;
+        margin: auto;
+
+        top: 0px;
+        z-index: 1;
+    }
+
+    .welcome-container {
+        width: 50%;
+        position: inherit;
+    }
+
+    /*------------------------------------*/
+
 }
 
 @media screen and (min-width:1024px) {
@@ -771,10 +860,23 @@ ul {
         flex: 0 0 31px;
     }
 
-    .landscape .nav-pages h1 {
-        font-family: NunitoSans;
+    .landscape .nav-pages a {
+        color: black;
+        transition: .2s;
+        text-decoration: none;
+        font-family: 'Nunito Sans', sans-serif;
         font-size: 15px;
         margin: 5px;
+    }
+
+    .landscape .nav-pages a.active {
+        color: #9cb18c;
+        border-bottom: 2px solid #9cb18c;
+        padding-bottom: .5px;
+    }
+
+    .landscape .nav-pages a:hover {
+        color: #9cb18c;
     }
 
     .landscape .nav-social-media {
@@ -787,6 +889,71 @@ ul {
     .landscape .nav-social-media #basket {
         margin-left: 60px;
     }
+
+
+
+
+    /*   MAIN PAGE ------------------------------------*/
+
+    .welcome-container2 {
+        width: 80%;
+        margin: 30px auto;
+        display: grid;
+        grid-gap: 0px;
+        grid-row-gap: 20px;
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas:
+            "image-welcome1 gallery-index"
+            "shop image-welcome2"
+        ;
+    }
+
+    .image-welcome1 {
+        height: 100%;
+        grid-area: image-welcome1;
+        margin: auto;
+    }
+
+    .image-welcome2 {
+        height: 100%;
+        grid-area: image-welcome2;
+        margin: auto;
+    }
+
+    .gallery-index {
+        grid-area: gallery-index;
+    }
+
+    .shop {
+        grid-area: shop;
+    }
+
+    .video {
+        position: static;
+    }
+
+    main.main-page {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .welcome-background {
+        height: 50%;
+        width: 50%;
+        display: block;
+        position: inherit;
+        margin: auto;
+
+        top: 0px;
+        z-index: 1;
+    }
+
+    .welcome-container {
+        width: 50%;
+        position: inherit;
+    }
+
+    /*------------------------------------*/
 
     .aboutGrid {
         max-width: 70%;

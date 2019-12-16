@@ -12,12 +12,35 @@
 <body>
 
     <header>
-        <nav>
+        <nav class="portrait">
             <img id="hamburguer" src="Assets/icones/burger_menu.svg">
             <div class="h1-container">
                 <h1 id="neda">Neda</h1>
             </div>
             <img id="basket" src="Assets/icones/Shop.svg">
+        </nav>
+
+        <nav class="landscape">
+            <div class="nav-pages">
+                <a class="active" href="index.html">HOME</a>
+                <a href="gallery.html?category=5">GALLERY</a>
+                <a href="about.html">ABOUT</a>
+                <a href="contact.html">CONTACT</a>
+            </div>
+            <div class="h1-container">
+                <h1 id="neda">Neda</h1>
+            </div>
+
+            <div class="nav-social-media">
+                <section class="social-media">
+                    <img class="email-foot" src="Assets/icones/Email.svg">
+                    <img class="facebook-foot" src="Assets/icones/Facebook.svg">
+                    <img class="instagram-foot" src="Assets/icones/instagram.svg">
+                    <img class="pinterest-foot" src="Assets/icones/Pinterest.svg">
+                </section>
+
+                <img id="basket" src="Assets/icones/Shop.svg">
+            </div>
         </nav>
     </header>
     <div class="sidenav">
@@ -40,7 +63,7 @@
 
         <img class="side-nav-bg" src="Assets/masks/mask_sunflower.png">
     </div>
-    <main>
+    <main class="main-page">
         <section class="welcome-container">
             <h1 class="zanzabar_h1">Welcome</h1>
             <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat</p>
@@ -57,19 +80,31 @@
         <h1>VIDEO</h1>
     </section>
 
-    <section class="gallery-index">
-        <h2>Gallery</h2>
-        <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat</p>
+    <section class="welcome-container2">
+        <section class="image-welcome1"></section>
+
+        <section class="gallery-index">
+            <h2>Gallery</h2>
+            <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat</p>
+
+            <div class="welcome-container-button">
+                <h2>SEE MORE</h2>
+            </div>
+        </section>
+
+        <section class="image-welcome2"></section>
+
+        <section class="shop">
+            <h2>Shop</h2>
+            <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat</p>
+
+            <div class="welcome-container-button">
+                <h2>SHOP NOW</h2>
+            </div>
+        </section>
     </section>
 
-    <section class="image-welcome1"></section>
 
-    <section class="shop">
-        <h2>Shop</h2>
-        <p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat</p>
-    </section>
-
-    <section class="image-welcome2"></section>
 
 
     <footer>
@@ -100,4 +135,6 @@
         </section>
 
     </footer>
-</body></html>
+</body>
+
+</html>
