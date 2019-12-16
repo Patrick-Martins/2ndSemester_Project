@@ -3,22 +3,26 @@ window.addEventListener("DOMContentLoaded", init);
 function init() {
     const urlParams = new URLSearchParams(window.location.search);
     //grab id=something from the url (it might not exist)
-    const id = urlParams.get("id");
     const category = urlParams.get("category");
+
 
 
     if (id) {
         getShopItem();
     } else if (category) {
-        if (category == 5) {
+  if (category == 5) {
             getCategoryData();
         } else {
             showGallery();
+            if (document.querySelector(".filterGallery")) {
+                getFilterData();
+                getFilter();
+            }
         }
     }
 }
 
-const filter = document.querySelector(".filterGallery");
+
 
 function getShopItem() {
     const urlParams = new URLSearchParams(window.location.search);
@@ -65,20 +69,16 @@ function showShopItem(item) {
 }
 
 function showStuff(data) {
-    console.log(data);
     data.forEach(showElements);
 }
 
 function showElements(element) {
-    console.log(element);
     const urlParams = new URLSearchParams(window.location.search);
     const category = urlParams.get("category");
     const template = document.querySelector(".galleryTemplate").content;
     const templateCopy = template.cloneNode(true);
 
     const elementContainer = templateCopy.querySelector(".type");
-    //console.log("hey");
-    //console.log(element._embedded["wp:featuredmedia"][0].media_details);
     const imgPath = element._embedded["wp:featuredmedia"][0].media_details.sizes.full.source_url;
     elementContainer.style.backgroundImage = `url(${imgPath})`;
     templateCopy.querySelector("h2").textContent = element.title.rendered;
@@ -98,22 +98,19 @@ function showElements(element) {
 }
 
 function showGallery() {
-    console.log("showgallery");
     const urlParams = new URLSearchParams(window.location.search);
     const category = urlParams.get("category");
-    console.log(category);
     fetch("http://pjmelite.dk/KEA_2Semester/2Sem_Project/wp_2ndSemProj/wp-json/wp/v2/painting?_embed&categories=" + category).then(res => res.json()).then(galleryForEach)
 }
 
 function galleryForEach(item) {
-    console.log(item);
     item.forEach(showGalleryItem);
 
 }
 
 function showGalleryItem(element) {
 
-    console.log("showgallery");
+    //    console.log("showgallery");
     const urlParams = new URLSearchParams(window.location.search);
     const category = urlParams.get("category");
 
@@ -142,11 +139,74 @@ function showGalleryItem(element) {
         const template = document.querySelector("template").content;
         const templateCopy = template.cloneNode(true);
         const imgPath = element._embedded["wp:featuredmedia"][0].media_details.sizes.full.source_url;
-        templateCopy.querySelector("img").setAttribute("src", imgPath);
+        const img = templateCopy.querySelector("img");
+        img.setAttribute("src", imgPath);
+        img.addEventListener("click", function () {
+            const modal = document.querySelector(".bg");
+            const modalImg = document.querySelector(".mdlImg");
+            const body = document.querySelector("body");
+            modalImg.setAttribute("src", imgPath);
+            body.classList.add("open");
+            modal.classList.remove("hide");
+            modal.addEventListener("click", function () {
+                modal.classList.add("hide");
+                body.classList.remove("open");
+            })
+
+        })
         document.querySelector(".gallery").appendChild(templateCopy);
 
     }
 }
+
+function getFilterData() {
+    fetch("http://pjmelite.dk/KEA_2Semester/2Sem_Project/wp_2ndSemProj/wp-json/wp/v2/gallery_element?_embed&categories=5").then(res => res.json()).then(optionForEach);
+}
+
+function optionForEach(option) {
+    option.forEach(makeOption);
+    option.forEach(filtering);
+}
+
+function makeOption(optionData) {
+    const filter = document.getElementById("filter");
+    const anOption = document.createElement("option");
+    anOption.textContent = optionData.title.rendered;
+    filter.appendChild(anOption);
+}
+
+function filtering(optionValue) {
+    const urlParams = new URLSearchParams(window.location.search);
+    const category = urlParams.get("category");
+    // used google for this one. Converts the "category" string into a number.
+    // taken from https://gomakethings.com/converting-strings-to-numbers-with-vanilla-javascript/
+    const integer = parseInt(category, 10);
+    if (optionValue.categories.includes(integer)) {
+        document.getElementById("filter").value = optionValue.title.rendered;
+    }
+}
+
+function getFilter() {
+    const filter = document.getElementById("filter");
+    filter.addEventListener("change", function () {
+        fetch("http://pjmelite.dk/KEA_2Semester/2Sem_Project/wp_2ndSemProj/wp-json/wp/v2/gallery_element?_embed&categories=5").then(res => res.json()).then(needToCompare);
+    })
+}
+
+function needToCompare(data) {
+    data.forEach(compare);
+}
+
+function compare(option) {
+    if (option.title.rendered == filter.value) {
+        if (option.categories[0] !== 5) {
+            location.href = `sub-gallery.html?category=${option.categories[0]}`
+        } else {
+            location.href = `sub-gallery.html?category=${option.categories[1]}`
+        }
+    }
+}
+
 
 const hamburguerBTN = document.getElementById("hamburguer");
 const body = document.querySelector("body");
