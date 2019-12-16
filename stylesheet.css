@@ -589,6 +589,7 @@ ul {
 
 /*MEDIA QUERIES--------------------------------------------*/
 
+/*
 @media screen and (min-width: 800px) {
     .portrait {
         display: none;
@@ -625,6 +626,7 @@ ul {
 
     .landscape .nav-social-media #basket{
         margin-left: 60px;
+*/
 
 @media screen and (max-width:640px) {
 
@@ -744,4 +746,40 @@ ul {
     .contact-info .sitemap {
         margin: auto;
     }
+    /*------------------------------------*/
+        .portrait {
+        display: none;
+    }
+
+    .landscape {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        height: 100%;
+        align-items: center;
+        align-content: center;
+    }
+
+    .landscape .nav-pages {
+        display: flex;
+        flex-direction: row;
+
+        flex: 0 0 31px;
+    }
+
+    .landscape .nav-pages h1 {
+        font-family: NunitoSans;
+        font-size: 15px;
+        margin: 5px;
+    }
+
+    .landscape .nav-social-media {
+        display: flex;
+        flex-direction: row;
+
+        flex: 0 0 48px;
+    }
+
+    .landscape .nav-social-media #basket{
+        margin-left: 60px;
 }

@@ -4,13 +4,15 @@ function init() {
     const urlParams = new URLSearchParams(window.location.search);
     //grab id=something from the url (it might not exist)
     const category = urlParams.get("category");
+    const id = urlParams.get("id");
+
 
 
 
     if (id) {
         getShopItem();
     } else if (category) {
-  if (category == 5) {
+        if (category == 5) {
             getCategoryData();
         } else {
             showGallery();
