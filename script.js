@@ -1,4 +1,3 @@
-
 window.addEventListener("DOMContentLoaded", init);
 
 function init() {
@@ -9,7 +8,7 @@ function init() {
 
 
     if (id) {
-        getEventData();
+        getShopItem();
     } else if (category) {
         if (category == 5) {
             getCategoryData();
@@ -21,6 +20,11 @@ function init() {
 
 const filter = document.querySelector(".filterGallery");
 
+function getShopItem() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const id = urlParams.get("id");
+    fetch("http://pjmelite.dk/KEA_2Semester/2Sem_Project/wp_2ndSemProj/wp-json/wp/v2/painting/" + id + "?_embed").then(res => res.json()).then(showShopItem);
+}
 
 function getCategoryData() {
     const urlParams = new URLSearchParams(window.location.search);
@@ -28,6 +32,36 @@ function getCategoryData() {
 
 
     fetch("http://pjmelite.dk/KEA_2Semester/2Sem_Project/wp_2ndSemProj/wp-json/wp/v2/gallery_element?_embed&categories=" + category).then(res => res.json()).then(showStuff);
+}
+
+function showShopItem(item) {
+    const template = document.querySelector(".shopInfoTemplate").content;
+    const templateCopy = template.cloneNode(true);
+
+    const itemImage = templateCopy.querySelector("img");
+    const imgPath = item._embedded["wp:featuredmedia"][0].media_details.sizes.full.source_url;
+    itemImage.src = imgPath;
+
+    const itemTitle = templateCopy.querySelector(".shop-painting-title");
+
+    itemTitle.innerHTML = item.title.rendered;
+
+    const itemDescription = templateCopy.querySelector(".shop-painting-description");
+
+    itemDescription.innerHTML = item.content.rendered;
+
+    templateCopy.querySelector(".contact-button").addEventListener("click", function () {
+        location.href = `shop.html`;
+    })
+
+
+    console.log("My id is " + item.id);
+
+    templateCopy.querySelector(".shop-painting-title").textContent = item.title.rendered;
+    templateCopy.querySelector(".shop-painting-price").textContent = item.price;
+
+    document.querySelector("main").appendChild(templateCopy);
+
 }
 
 function showStuff(data) {
@@ -91,7 +125,15 @@ function showGalleryItem(element) {
         const elementContainer = templateCopy.querySelector(".type");
         const imgPath = element._embedded["wp:featuredmedia"][0].media_details.sizes.full.source_url;
         elementContainer.style.backgroundImage = `url(${imgPath})`;
-        templateCopy.querySelector(".shopElemTitle").textContent = element.title.rendered;
+
+        templateCopy.querySelector(".shopElem").addEventListener("click", function () {
+            location.href = `sub-shop.html?id=${element.id}`
+        })
+
+
+        console.log("My id is " + element.id);
+
+        templateCopy.querySelector(".shopElemTitle").innerHTML = element.title.rendered;
         templateCopy.querySelector(".shopElemPrice").textContent = element.price;
 
         document.querySelector(".shop-container").appendChild(templateCopy);
