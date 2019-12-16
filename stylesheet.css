@@ -542,6 +542,12 @@ ul {
         display: grid;
         grid-template-columns: 1fr;
     }
+
+    .mdlImg {
+        max-width: 90%;
+        max-height: 90%;
+
+    }
 }
 
 @media screen and (min-width:640px) and (max-width:900px) {
@@ -557,6 +563,8 @@ ul {
 
     .mdlImg {
         max-width: 80%;
+        max-height: 90%;
+
     }
 
     .contactText,
@@ -579,6 +587,7 @@ ul {
 
     .mdlImg {
         max-width: 70%;
+        max-height: 90%;
     }
 
     .contactContainer {
@@ -617,6 +626,8 @@ ul {
 
     .mdlImg {
         max-width: 60%;
+        max-height: 80%;
+
     }
 
     .contactContainer {
