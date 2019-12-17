@@ -147,11 +147,11 @@ nav {
     flex: 0 0 31px;
 }
 
-#basket {
+.shopIcon {
     flex: 0 0 48px;
 }
 
-#neda {
+.neda {
     display: block;
     text-align: center;
     margin: auto;
@@ -190,7 +190,6 @@ main {
     font-size: .74rem;
     text-align: center;
     color: #9cb18c;
-    font-weight: 100;
 }
 
 .welcome-container .zanzabar_h1 {
@@ -226,7 +225,7 @@ main {
     text-align: center;
     align-self: center;
     margin: auto;
-    color: #ffffff;
+    color: black;
     font-size: .2rem;
 }
 
@@ -430,7 +429,7 @@ footer {
 .sitemap h1,
 .contact h1 {
     font-size: 12px;
-    color: #888888;
+    color: #626262;
 }
 
 .sitemap ul li,
@@ -438,12 +437,12 @@ footer {
 .footer-contact-info .contactInfo a {
     font-size: 13px;
     margin: 0;
-    color: #888888;
+    color: #626262;
 }
 
 .sitemap ul li a {
     text-decoration: none;
-    color: #888888;
+    color: #626262;
 }
 
 .sitemap ul li a:hover {
@@ -941,8 +940,9 @@ ul {
     }
 
     .shop-painting img {
-        flex: 0 0 50%;
         display: block;
+        max-width: 40%;
+
     }
 
     .shop-painting .shop-painting-info {
@@ -1138,8 +1138,8 @@ ul {
     }
 
     .shop-painting img {
-        flex: 0 0 30%;
         display: block;
+        max-width: 40%;
     }
 
     .shop-painting .shop-painting-info {

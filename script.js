@@ -103,6 +103,7 @@ function showShopItem(item) {
     const itemDescription = templateCopy.querySelector(".shop-painting-description");
 
     itemDescription.innerHTML = item.content.rendered;
+    document.querySelector("title").textContent = item.title.rendered;
 
 
 
@@ -239,6 +240,7 @@ function filtering(optionValue) {
     //if one of the option's categories equals the integer number from the URL, make that option the selected one that is shown to the user
     if (optionValue.categories.includes(integer)) {
         document.getElementById("filter").value = optionValue.title.rendered;
+        document.querySelector("title").textContent = optionValue.title.rendered;
     }
 }
 
