@@ -338,7 +338,7 @@ function openEmail(one) {
 
 function openFacebook(one) {
     one.addEventListener("click", function () {
-        location.href = "https://www.facebook.com";
+        location.href = "https://www.facebook.com/neda.rahimi.161009";
     });
 }
 
