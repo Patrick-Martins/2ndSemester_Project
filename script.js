@@ -11,6 +11,14 @@ function init() {
     //calling a function only if certain parameters exist in the URL
     if (id) {
         getShopItem();
+
+        /*add event listener to arrow on sub-shop page only*/
+        const subShopArrowBack = document.querySelector(".sub-shop-heading .arrowBack");
+
+        subShopArrowBack.addEventListener("click", function () {
+            location.href = "shop.html?category=7";
+        });
+
     } else if (category) {
         if (category == 5) {
             getCategoryData();
@@ -303,8 +311,38 @@ if (window.location.href.substr(-10) == "index.html") {
 
 
 
-const subShopArrowBack = document.querySelector(".sub-shop-heading .arrowBack");
+/*LINKS TO SOCIAL MEDIA_____________*/
 
-subShopArrowBack.addEventListener("click", function () {
-    location.href = "shop.html?category=7";
-});
+const email = document.querySelectorAll(".email");
+const facebook = document.querySelectorAll(".facebook");
+const instagram = document.querySelectorAll(".instagram");
+const pinterest = document.querySelectorAll(".pinterest");
+
+email.forEach(openEmail);
+facebook.forEach(openFacebook);
+instagram.forEach(openInstagram);
+pinterest.forEach(openPinterest);
+
+function openEmail(one) {
+    one.addEventListener("click", function () {
+        location.href = "mailto:rahimineda.art@gmail.com";
+    });
+}
+
+function openFacebook(one) {
+    one.addEventListener("click", function () {
+        location.href = "https://www.facebook.com";
+    });
+}
+
+function openInstagram(one) {
+    one.addEventListener("click", function () {
+        location.href = "https://www.instagram.com/rahimineda.art/";
+    });
+}
+
+function openPinterest(one) {
+    one.addEventListener("click", function () {
+        location.href = "https://www.pinterest.com";
+    });
+}
