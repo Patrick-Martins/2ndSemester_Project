@@ -194,6 +194,10 @@ main {
     font-weight: 100;
 }
 
+.welcome-container .zanzabar_h1{
+    margin-bottom: 5px;
+}
+
 .welcome-container {
     height: 550px;
     width: 100%;
