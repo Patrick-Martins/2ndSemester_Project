@@ -180,8 +180,8 @@ main {
 }
 
 .shopButton {
-        cursor: pointer;
-    }
+    cursor: pointer;
+}
 
 /*MAIN PAGE---------------------------------*/
 
@@ -205,8 +205,6 @@ main {
     background-color: none;
     z-index: 10;
     position: relative;
-
-
 }
 
 .welcome-background {
@@ -260,12 +258,15 @@ section.shop {
     background-color: #9cb18c;
 }
 
-section.shop p, section.gallery-index p{
+section.shop p,
+section.gallery-index p {
     padding: 10px;
     text-align: center;
 }
 
-#moreGalleryBTN:hover, #moreShopBTN:hover, .moreabout-button:hover{
+#moreGalleryBTN:hover,
+#moreShopBTN:hover,
+.moreabout-button:hover {
     cursor: pointer;
 }
 
@@ -432,12 +433,12 @@ footer {
     color: #888888;
 }
 
-.sitemap ul li a{
+.sitemap ul li a {
     text-decoration: none;
     color: #888888;
 }
 
-.sitemap ul li a:hover{
+.sitemap ul li a:hover {
     text-decoration: underline;
 }
 
@@ -595,12 +596,12 @@ ul {
     font-size: 16px;
 }
 
-.shopElemTitle{
+.shopElemTitle {
     margin-top: 5px;
     color: #888888;
 }
 
-.shopElemPrice{
+.shopElemPrice {
     font-size: 14px;
     font-weight: 600;
 }
@@ -614,17 +615,17 @@ ul {
 
 
 /*SUB-SHOP --------------------------------------------*/
-.sub-shop-heading{
+.sub-shop-heading {
     display: flex;
     width: 90%;
 }
 
-.sub-shop-heading .arrowBack{
-     flex: 1 0 17px;
+.sub-shop-heading .arrowBack {
+    flex: 1 0 17px;
 }
 
-.sub-shop-heading .page-heading{
-     flex: 0 0 100%;
+.sub-shop-heading .page-heading {
+    flex: 0 0 100%;
 }
 
 .sub-shop-main img {
@@ -761,8 +762,9 @@ ul {
         width: 100%;
         height: 0;
         padding-top: 40%;
-  }
-    .sub-shop-main{
+    }
+
+    .sub-shop-main {
         width: 50%;
         margin: auto;
 
@@ -881,7 +883,7 @@ ul {
 
     /*------------------------------------*/
 
-    .sub-shop-main{
+    .sub-shop-main {
         width: 50%;
         margin: auto;
     }
@@ -1057,12 +1059,12 @@ ul {
     }
 
 
-    .sub-shop-main{
+    .sub-shop-main {
         width: 50%;
         margin: auto;
     }
 
-    .sub-shop-main img{
+    .sub-shop-main img {
         width: 60%;
     }
 }
