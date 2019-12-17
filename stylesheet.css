@@ -112,7 +112,7 @@ nav {
 }
 
 .sidenav a:hover {
-    color: #f1f1f1;
+    color: black;
 }
 
 .sidenav .categories {
@@ -239,11 +239,10 @@ main {
 
 .video {
     display: block;
-    width: 100%;
-    height: 240px;
-    background: blue;
+    width: 90%;
+    height: 100px auto;
+    margin: 20px auto;
     z-index: 1000;
-    position: relative;
 }
 
 section.gallery-index {
@@ -696,6 +695,15 @@ ul {
     color: #ffffff;
 }
 
+.shop-painting{
+    display: block;
+    margin-top: 30px;
+}
+
+.shop-painting img{
+    margin-bottom: 20px;
+}
+
 
 /*--------------------------------------------*/
 
@@ -789,6 +797,10 @@ ul {
         margin: auto;
 
     }
+
+    .video {
+        width: 50%;
+    }
 }
 
 @media screen and (min-width:900px) and (max-width:1024px) {
@@ -841,6 +853,12 @@ ul {
         padding-top: 60%;
     }
 
+
+    .video {
+        margin-top: 100px;
+        width: 50%;
+    }
+
     /*   MAIN PAGE ------------------------------------*/
 
     .welcome-container2 {
@@ -876,9 +894,6 @@ ul {
         grid-area: shop;
     }
 
-    .video {
-        position: static;
-    }
 
     main.main-page {
         display: flex;
@@ -904,9 +919,33 @@ ul {
     /*------------------------------------*/
 
     .sub-shop-main {
-        width: 50%;
+        width: 80%;
         margin: auto;
     }
+
+    .shop-painting {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: row;
+        width: 100%;
+        margin: auto;
+    }
+
+    .shop-painting img{
+        flex: 0 0 50%;
+        display: block;
+    }
+
+    .shop-painting .shop-painting-info{
+        flex: 0 0 50%;
+        margin-left: 10px;
+    }
+
+    .shop-painting .contact-button{
+        width: 100%;
+    }
+
 
 }
 
@@ -1043,9 +1082,6 @@ ul {
         grid-area: shop;
     }
 
-    .video {
-        position: static;
-    }
 
     main.main-page {
         display: flex;
@@ -1080,11 +1116,37 @@ ul {
 
 
     .sub-shop-main {
-        width: 50%;
+        width: 80%;
         margin: auto;
     }
 
-    .sub-shop-main img {
-        width: 60%;
+    .shop-painting {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: row;
+        width: 100%;
+        margin: auto;
+    }
+
+    .shop-painting img{
+        flex: 0 0 30%;
+        display: block;
+    }
+
+    .shop-painting .shop-painting-info{
+        flex: 0 0 50%;
+        margin-left: 10px;
+    }
+
+    .shop-painting .contact-button{
+        width: 70%;
+    }
+
+
+
+    .video {
+        margin-top: 100px;
+        width: 50%;
     }
 }
