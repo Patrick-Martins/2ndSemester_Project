@@ -104,9 +104,6 @@ function showShopItem(item) {
 
     itemDescription.innerHTML = item.content.rendered;
 
-    templateCopy.querySelector(".contact-button").addEventListener("click", function () {
-        location.href = `shop.html`;
-    })
 
 
     console.log("My id is " + item.id);
