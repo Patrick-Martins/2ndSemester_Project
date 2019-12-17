@@ -44,16 +44,16 @@ function getAboutData() {
 
 function organize(stuff) {
 
-    if(stuff.id == 13){
-    const container = document.querySelector(".about-container");
-    const image = document.querySelector(".about-image");
-    const imgPath = stuff._embedded["wp:featuredmedia"][0].media_details.sizes.full.source_url;
+    if (stuff.id == 13) {
+        const container = document.querySelector(".about-container");
+        const image = document.querySelector(".about-image");
+        const imgPath = stuff._embedded["wp:featuredmedia"][0].media_details.sizes.full.source_url;
 
-    image.setAttribute("src", imgPath);
-    container.innerHTML = stuff.content.rendered;
-}else if (stuff.id == 17){
-    document.querySelector(".contact-info").innerHTML = stuff.content.rendered;
-}
+        image.setAttribute("src", imgPath);
+        container.innerHTML = stuff.content.rendered;
+    } else if (stuff.id == 17) {
+        document.querySelector(".contact-info").innerHTML = stuff.content.rendered;
+    }
 }
 
 
@@ -271,4 +271,32 @@ function closeNav() {
     hamburguerBTN.removeEventListener('click', closeNav);
     hamburguerBTN.addEventListener("click", openNav);
     hamburguerBTN.src = "Assets/icones/burger_menu.svg";
+}
+
+const shopBTN1 = document.querySelector(".portrait .shopButton");
+shopBTN1.addEventListener("click", function () {
+    location.href = "shop.html?category=7";
+})
+
+const shopBTN2 = document.querySelector(".landscape .nav-social-media .shopButton");
+shopBTN2.addEventListener("click", function () {
+    location.href = "shop.html?category=7";
+})
+
+
+if (window.location.href.substr(-10) == "index.html") {
+    const moreAboutBTN = document.querySelector(".moreabout-button");
+    const moreGalleryBTN = document.getElementById("moreGalleryBTN");
+    const moreShopBTN = document.getElementById("moreShopBTN");
+
+
+    moreAboutBTN.addEventListener("click", function () {
+        location.href = "about.html?post=13";
+    })
+    moreGalleryBTN.addEventListener("click", function () {
+        location.href = "gallery.html?category=5";
+    })
+    moreShopBTN.addEventListener("click", function () {
+        location.href = "shop.html?category=7";
+    })
 }
