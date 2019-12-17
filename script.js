@@ -325,12 +325,10 @@ if (window.location.href.substr(-10) == "index.html") {
 const email = document.querySelectorAll(".email");
 const facebook = document.querySelectorAll(".facebook");
 const instagram = document.querySelectorAll(".instagram");
-const pinterest = document.querySelectorAll(".pinterest");
 
 email.forEach(openEmail);
 facebook.forEach(openFacebook);
 instagram.forEach(openInstagram);
-pinterest.forEach(openPinterest);
 
 function openEmail(one) {
     one.addEventListener("click", function () {
@@ -347,11 +345,5 @@ function openFacebook(one) {
 function openInstagram(one) {
     one.addEventListener("click", function () {
         location.href = "https://www.instagram.com/rahimineda.art/";
-    });
-}
-
-function openPinterest(one) {
-    one.addEventListener("click", function () {
-        location.href = "https://www.pinterest.com";
     });
 }
