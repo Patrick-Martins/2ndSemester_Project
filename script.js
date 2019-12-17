@@ -300,3 +300,11 @@ if (window.location.href.substr(-10) == "index.html") {
         location.href = "shop.html?category=7";
     })
 }
+
+
+
+const subShopArrowBack = document.querySelector(".sub-shop-heading .arrowBack");
+
+subShopArrowBack.addEventListener("click", function () {
+    location.href = "shop.html?category=7";
+});

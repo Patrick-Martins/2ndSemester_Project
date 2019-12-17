@@ -251,6 +251,15 @@ section.shop {
     background-color: #9cb18c;
 }
 
+section.shop p, section.gallery-index p{
+    padding: 10px;
+    text-align: center;
+}
+
+#moreGalleryBTN:hover, #moreShopBTN:hover, .moreabout-button:hover{
+    cursor: pointer;
+}
+
 h2 {
     font-size: .43rem;
     font-family: Zanzabar;
@@ -596,6 +605,19 @@ ul {
 
 
 /*SUB-SHOP --------------------------------------------*/
+.sub-shop-heading{
+    display: flex;
+    width: 90%;
+}
+
+.sub-shop-heading .arrowBack{
+     flex: 1 0 17px;
+}
+
+.sub-shop-heading .page-heading{
+     flex: 0 0 100%;
+}
+
 .sub-shop-main img {
     display: block;
     margin: auto;
