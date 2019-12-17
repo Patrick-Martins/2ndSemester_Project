@@ -3,7 +3,7 @@
     src: url(Zanzabar.otf);
 }
 
-a{
+a {
     text-decoration: none;
     color: white;
 }
@@ -194,7 +194,7 @@ main {
     font-weight: 100;
 }
 
-.welcome-container .zanzabar_h1{
+.welcome-container .zanzabar_h1 {
     margin-bottom: 5px;
 }
 
@@ -393,6 +393,17 @@ h3 {
     display: flex;
     width: 100%;
     margin: auto;
+    justify-content: space-around;
+}
+
+.contact-info .location {
+    text-align: right;
+    width: 50%;
+}
+
+.contact-info .contactInfo {
+    text-align: left;
+    width: 50%;
 }
 
 .map-container {
@@ -419,6 +430,10 @@ footer {
     /*    background-color: #c6c6c6;*/
 }
 
+.footer-contact-info .contactInfo {
+    text-align: right;
+}
+
 .sitemap h1,
 .contact h1 {
     font-size: 12px;
@@ -426,9 +441,9 @@ footer {
 }
 
 .sitemap ul li,
-.contact ul li {
+.footer-contact-info .contactInfo p,
+.footer-contact-info .contactInfo a {
     font-size: 13px;
-    display: block;
     margin: 0;
     color: #888888;
 }
@@ -445,6 +460,11 @@ footer {
 .sitemap {
     flex: 1;
     width: 50%;
+}
+
+.contactInfo a {
+    color: black;
+
 }
 
 .contact {
@@ -801,8 +821,8 @@ ul {
         flex-direction: column;
     }
 
-    .contact-info .contact,
-    .contact-info .sitemap {
+    .contact-info .contactInfo,
+    .contact-info .location {
         margin: auto;
         text-align: center;
     }
@@ -924,8 +944,8 @@ ul {
         flex-direction: column;
     }
 
-    .contact-info .contact,
-    .contact-info .sitemap {
+    .contact-info .contactInfo,
+    .contact-info .location {
         margin: auto;
         text-align: center;
     }
