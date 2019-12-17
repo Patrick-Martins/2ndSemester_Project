@@ -248,6 +248,7 @@ section.shop {
     margin: 0;
     height: 240px;
     background-color: #9cb18c;
+    padding-bottom: .4em;
 }
 
 section.shop p,
