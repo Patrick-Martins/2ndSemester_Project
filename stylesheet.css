@@ -3,6 +3,11 @@
     src: url(Zanzabar.otf);
 }
 
+a{
+    text-decoration: none;
+    color: white;
+}
+
 * {
     font-family: 'Nunito Sans', sans-serif;
 }
@@ -189,7 +194,7 @@ main {
     font-weight: 100;
 }
 
-.welcome-container .zanzabar_h1 {
+.welcome-container .zanzabar_h1{
     margin-bottom: 5px;
 }
 
@@ -314,7 +319,7 @@ h2 {
 
 .welcome-container-button h2 {
     margin: auto;
-    font-family: "NunitoSans";
+    font-family: "Nunito Sans";
     font-size: 19px;
     font-weight: normal;
     color: #000000;
