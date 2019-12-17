@@ -180,7 +180,7 @@ function showGalleryItem(element) {
         img.addEventListener("click", function () {
             const modal = document.querySelector(".bg");
             const modalImg = document.querySelector(".mdlImg");
-            const body = document.querySelector("body");
+            const body = document.querySelector("html");
             modalImg.setAttribute("src", imgPath);
             body.classList.add("open"); //prevents the page from scrolling
             modal.classList.remove("hide"); //makes the modal visible
