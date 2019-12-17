@@ -33,15 +33,23 @@ function init() {
     } else if (post) {
         if (post == 13) {
             getAboutData();
-        } else if (post == 119) {
-
         } else {
             getContactData();
         }
 
     }
+    getContactDataFooter();
 }
 
+function getContactDataFooter() {
+    fetch("http://pjmelite.dk/KEA_2Semester/2Sem_Project/wp_2ndSemProj/wp-json/wp/v2/posts/17?_embed").then(res => res.json()).then(arrangeFooter);
+}
+
+function arrangeFooter(contact){
+    document.querySelector(".footer-contact-info").innerHTML = contact.content.rendered;
+    document.querySelector(".footer-contact-info .location").remove();
+
+}
 function getContactData() {
     fetch("http://pjmelite.dk/KEA_2Semester/2Sem_Project/wp_2ndSemProj/wp-json/wp/v2/posts/17?_embed").then(res => res.json()).then(organize);
 }
@@ -62,6 +70,8 @@ function organize(stuff) {
     } else if (stuff.id == 17) {
         document.querySelector(".contact-info").innerHTML = stuff.content.rendered;
     }
+
+
 }
 
 

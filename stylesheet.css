@@ -185,7 +185,6 @@ main {
 
 /*MAIN PAGE---------------------------------*/
 
-
 .zanzabar_h1 {
     font-family: Zanzabar;
     font-size: .74rem;
@@ -208,13 +207,7 @@ main {
 }
 
 .welcome-background {
-    display: block;
-    position: absolute;
-    top: 360px;
-    width: 100%;
-
-    width: 500px;
-    z-index: 1;
+    display: none;
 }
 
 .moreabout-button {
@@ -392,6 +385,17 @@ h3 {
     display: flex;
     width: 100%;
     margin: auto;
+    justify-content: space-around;
+}
+
+.contact-info .location {
+    text-align: right;
+    width: 40%;
+}
+
+.contact-info .contactInfo {
+    text-align: left;
+    width: 60%;
 }
 
 .map-container {
@@ -418,6 +422,10 @@ footer {
     /*    background-color: #c6c6c6;*/
 }
 
+.footer-contact-info .contactInfo {
+    text-align: right;
+}
+
 .sitemap h1,
 .contact h1 {
     font-size: 12px;
@@ -425,9 +433,9 @@ footer {
 }
 
 .sitemap ul li,
-.contact ul li {
+.footer-contact-info .contactInfo p,
+.footer-contact-info .contactInfo a {
     font-size: 13px;
-    display: block;
     margin: 0;
     color: #888888;
 }
@@ -444,6 +452,11 @@ footer {
 .sitemap {
     flex: 1;
     width: 50%;
+}
+
+.contactInfo a {
+    color: black;
+
 }
 
 .contact {
@@ -675,12 +688,12 @@ ul {
     color: #ffffff;
 }
 
-.shop-painting{
+.shop-painting {
     display: block;
     margin-top: 30px;
 }
 
-.shop-painting img{
+.shop-painting img {
     margin-bottom: 20px;
 }
 
@@ -691,6 +704,13 @@ ul {
 
 
 @media screen and (max-width:640px) {
+
+    main.main-page {
+        background-image: url("Assets/masks/mask-homepage.png");
+        background-position:bottom right;
+        background-size:400px;
+        background-repeat: no-repeat;
+    }
 
     .gallery,
     .types {
@@ -730,6 +750,13 @@ ul {
 }
 
 @media screen and (min-width:640px) and (max-width:900px) {
+
+    main.main-page {
+        background-image: url("Assets/masks/mask-homepage.png");
+        background-position:bottom right;
+        background-size:60%;
+        background-repeat: no-repeat;
+    }
 
     .gallery,
     .types {
@@ -813,8 +840,8 @@ ul {
         flex-direction: column;
     }
 
-    .contact-info .contact,
-    .contact-info .sitemap {
+    .contact-info .contactInfo,
+    .contact-info .location {
         margin: auto;
         text-align: center;
     }
@@ -912,17 +939,17 @@ ul {
         margin: auto;
     }
 
-    .shop-painting img{
+    .shop-painting img {
         flex: 0 0 50%;
         display: block;
     }
 
-    .shop-painting .shop-painting-info{
+    .shop-painting .shop-painting-info {
         flex: 0 0 50%;
         margin-left: 10px;
     }
 
-    .shop-painting .contact-button{
+    .shop-painting .contact-button {
         width: 100%;
     }
 
@@ -963,8 +990,8 @@ ul {
         flex-direction: column;
     }
 
-    .contact-info .contact,
-    .contact-info .sitemap {
+    .contact-info .contactInfo,
+    .contact-info .location {
         margin: auto;
         text-align: center;
     }
@@ -1109,17 +1136,17 @@ ul {
         margin: auto;
     }
 
-    .shop-painting img{
+    .shop-painting img {
         flex: 0 0 30%;
         display: block;
     }
 
-    .shop-painting .shop-painting-info{
+    .shop-painting .shop-painting-info {
         flex: 0 0 50%;
         margin-left: 10px;
     }
 
-    .shop-painting .contact-button{
+    .shop-painting .contact-button {
         width: 70%;
     }
 
