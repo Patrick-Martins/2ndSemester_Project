@@ -9,17 +9,17 @@ function init() {
     const post = urlParams.get("post");
 
     //calling a function only if certain parameters exist in the URL
-    if (id) {
+    if (id) { //if there is an id it means you are on the sub-shop page and want to fetch a specific painting from database
         getShopItem();
 
-        /*add event listener to arrow on sub-shop page only*/
+        /*add event listener to back arrow on sub-shop page only*/
         const subShopArrowBack = document.querySelector(".sub-shop-heading .arrowBack");
 
         subShopArrowBack.addEventListener("click", function () {
             location.href = "shop.html?category=7";
         });
 
-    } else if (category) {
+    } else if (category) { //if there is a category, it means that you are either in the gallery or shop page to fetch objects with a specific category
         if (category == 5) {
             getCategoryData();
         } else {
@@ -41,57 +41,11 @@ function init() {
     getContactDataFooter();
 }
 
-function getContactDataFooter() {
-    //fetching contact info
-    fetch("http://pjmelite.dk/KEA_2Semester/2Sem_Project/wp_2ndSemProj/wp-json/wp/v2/posts/17?_embed").then(res => res.json()).then(arrangeFooter);
-}
-//removing unneccessary information so that only the contact information appears in the footer
-function arrangeFooter(contact) {
-    document.querySelector(".footer-contact-info").innerHTML = contact.content.rendered;
-    //removes
-    document.querySelector(".footer-contact-info .location").remove();
-
-}
-
-function getContactData() {
-   //fetching the data of the contact page
-    fetch("http://pjmelite.dk/KEA_2Semester/2Sem_Project/wp_2ndSemProj/wp-json/wp/v2/posts/17?_embed").then(res => res.json()).then(organize);
-}
-
-function getAboutData() {
-    //fetching the data of the about page
-    fetch("http://pjmelite.dk/KEA_2Semester/2Sem_Project/wp_2ndSemProj/wp-json/wp/v2/posts/13?_embed").then(res => res.json()).then(organize);
-}
-
-function organize(stuff) {
-    //adding the text content to the about page and the contact page.
-
-    if (stuff.id == 13) {//about page
-        const container = document.querySelector(".about-container");
-        const image = document.querySelector(".about-image");
-        const imgPath = stuff._embedded["wp:featuredmedia"][0].media_details.sizes.full.source_url;
-
-        image.setAttribute("src", imgPath);
-        container.innerHTML = stuff.content.rendered;
-    } else if (stuff.id == 17) {//contact page
-        document.querySelector(".contact-info").innerHTML = stuff.content.rendered;
-    }
-
-
-}
-
-
+//If ID
 function getShopItem() {
     const urlParams = new URLSearchParams(window.location.search);
     const id = urlParams.get("id");
     fetch("http://pjmelite.dk/KEA_2Semester/2Sem_Project/wp_2ndSemProj/wp-json/wp/v2/painting/" + id + "?_embed").then(res => res.json()).then(showShopItem);
-}
-
-function getCategoryData() {
-    const urlParams = new URLSearchParams(window.location.search);
-    const category = urlParams.get("category");
-    //fetching the different categories/styles the artist has worked with
-    fetch("http://pjmelite.dk/KEA_2Semester/2Sem_Project/wp_2ndSemProj/wp-json/wp/v2/gallery_element?_embed&categories=" + category).then(res => res.json()).then(showStuff);
 }
 
 function showShopItem(item) {
@@ -120,6 +74,18 @@ function showShopItem(item) {
 
     document.querySelector("main").appendChild(templateCopy);
 
+}
+
+//------------------------------------------------------------------
+
+//If CATEGORY
+//if CATEGORY=5 ---------GALLERY CATEGORIES PAGE
+
+function getCategoryData() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const category = urlParams.get("category");
+    //fetching the different categories/styles the artist has worked with
+    fetch("http://pjmelite.dk/KEA_2Semester/2Sem_Project/wp_2ndSemProj/wp-json/wp/v2/gallery_element?_embed&categories=" + category).then(res => res.json()).then(showStuff);
 }
 
 function showStuff(data) {
@@ -152,6 +118,7 @@ function showElements(element) {
     document.querySelector(".types").appendChild(templateCopy);
 }
 
+//ELSE, if any other category different than 5
 function showGallery() {
     const urlParams = new URLSearchParams(window.location.search);
     const category = urlParams.get("category");
@@ -217,6 +184,7 @@ function showGalleryItem(element) {
 
     }
 }
+//if there is an element with class .filterGallery
 
 function getFilterData() {
     //fetching the styles of painting the artist has worked with
@@ -274,6 +242,52 @@ function compare(option) {
         }
     }
 }
+
+//---------------------------------------------------
+//IF POST-------------------------------------------------
+//IF post is not 13
+function getContactData() {
+    //fetching the data of the contact page
+    fetch("http://pjmelite.dk/KEA_2Semester/2Sem_Project/wp_2ndSemProj/wp-json/wp/v2/posts/17?_embed").then(res => res.json()).then(organize);
+}
+//IF post==13
+function getAboutData() {
+    //fetching the data of the about page
+    fetch("http://pjmelite.dk/KEA_2Semester/2Sem_Project/wp_2ndSemProj/wp-json/wp/v2/posts/13?_embed").then(res => res.json()).then(organize);
+}
+
+function organize(stuff) {
+    //adding the text content to the about page and the contact page.
+
+    if (stuff.id == 13) { //about page
+        const container = document.querySelector(".about-container");
+        const image = document.querySelector(".about-image");
+        const imgPath = stuff._embedded["wp:featuredmedia"][0].media_details.sizes.full.source_url;
+
+        image.setAttribute("src", imgPath);
+        container.innerHTML = stuff.content.rendered;
+    } else if (stuff.id == 17) { //contact page
+        document.querySelector(".contact-info").innerHTML = stuff.content.rendered;
+    }
+
+
+}
+
+//AT all times getContactDataFooter
+
+function getContactDataFooter() {
+    //fetching contact info
+    fetch("http://pjmelite.dk/KEA_2Semester/2Sem_Project/wp_2ndSemProj/wp-json/wp/v2/posts/17?_embed").then(res => res.json()).then(arrangeFooter);
+}
+//removing unneccessary information so that only the contact information appears in the footer
+function arrangeFooter(contact) {
+    document.querySelector(".footer-contact-info").innerHTML = contact.content.rendered;
+    //removes
+    document.querySelector(".footer-contact-info .location").remove();
+
+}
+
+
 
 
 const hamburguerBTN = document.getElementById("hamburguer");
