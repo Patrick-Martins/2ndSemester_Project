@@ -330,7 +330,7 @@ shopBTN2.addEventListener("click", function () {
     location.href = "shop.html?category=7";
 })
 
-//if the last 10 characters of the url page are "index.html" then it will execute what is inside the condition
+//if the last 10 characters of the url page are "index.html" then it will execute what is inside the condition reference:https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/substr
 if (window.location.href.substr(-10) == "index.html") {
     const moreAboutBTN = document.querySelector(".moreabout-button");
     const moreGalleryBTN = document.getElementById("moreGalleryBTN");
