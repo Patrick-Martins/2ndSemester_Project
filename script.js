@@ -45,11 +45,12 @@ function getContactDataFooter() {
     fetch("http://pjmelite.dk/KEA_2Semester/2Sem_Project/wp_2ndSemProj/wp-json/wp/v2/posts/17?_embed").then(res => res.json()).then(arrangeFooter);
 }
 
-function arrangeFooter(contact){
+function arrangeFooter(contact) {
     document.querySelector(".footer-contact-info").innerHTML = contact.content.rendered;
     document.querySelector(".footer-contact-info .location").remove();
 
 }
+
 function getContactData() {
     fetch("http://pjmelite.dk/KEA_2Semester/2Sem_Project/wp_2ndSemProj/wp-json/wp/v2/posts/17?_embed").then(res => res.json()).then(organize);
 }
@@ -338,12 +339,12 @@ function openEmail(one) {
 
 function openFacebook(one) {
     one.addEventListener("click", function () {
-        location.href = "https://www.facebook.com/neda.rahimi.161009";
+        window.open("https://www.facebook.com/neda.rahimi.161009", '_blank');
     });
 }
 
 function openInstagram(one) {
     one.addEventListener("click", function () {
-        location.href = "https://www.instagram.com/rahimineda.art/";
+        window.open("https://www.instagram.com/rahimineda.art/", '_blank');
     });
 }
