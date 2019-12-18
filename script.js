@@ -42,32 +42,38 @@ function init() {
 }
 
 function getContactDataFooter() {
+    //fetching contact info
     fetch("http://pjmelite.dk/KEA_2Semester/2Sem_Project/wp_2ndSemProj/wp-json/wp/v2/posts/17?_embed").then(res => res.json()).then(arrangeFooter);
 }
-
-function arrangeFooter(contact){
+//removing unneccessary information so that only the contact information appears in the footer
+function arrangeFooter(contact) {
     document.querySelector(".footer-contact-info").innerHTML = contact.content.rendered;
+    //removes
     document.querySelector(".footer-contact-info .location").remove();
 
 }
+
 function getContactData() {
+   //fetching the data of the contact page
     fetch("http://pjmelite.dk/KEA_2Semester/2Sem_Project/wp_2ndSemProj/wp-json/wp/v2/posts/17?_embed").then(res => res.json()).then(organize);
 }
 
 function getAboutData() {
+    //fetching the data of the about page
     fetch("http://pjmelite.dk/KEA_2Semester/2Sem_Project/wp_2ndSemProj/wp-json/wp/v2/posts/13?_embed").then(res => res.json()).then(organize);
 }
 
 function organize(stuff) {
+    //adding the text content to the about page and the contact page.
 
-    if (stuff.id == 13) {
+    if (stuff.id == 13) {//about page
         const container = document.querySelector(".about-container");
         const image = document.querySelector(".about-image");
         const imgPath = stuff._embedded["wp:featuredmedia"][0].media_details.sizes.full.source_url;
 
         image.setAttribute("src", imgPath);
         container.innerHTML = stuff.content.rendered;
-    } else if (stuff.id == 17) {
+    } else if (stuff.id == 17) {//contact page
         document.querySelector(".contact-info").innerHTML = stuff.content.rendered;
     }
 
@@ -103,6 +109,7 @@ function showShopItem(item) {
     const itemDescription = templateCopy.querySelector(".shop-painting-description");
 
     itemDescription.innerHTML = item.content.rendered;
+    document.querySelector("title").textContent = item.title.rendered;
 
 
 
@@ -239,6 +246,7 @@ function filtering(optionValue) {
     //if one of the option's categories equals the integer number from the URL, make that option the selected one that is shown to the user
     if (optionValue.categories.includes(integer)) {
         document.getElementById("filter").value = optionValue.title.rendered;
+        document.querySelector("title").textContent = optionValue.title.rendered;
     }
 }
 
@@ -323,12 +331,10 @@ if (window.location.href.substr(-10) == "index.html") {
 const email = document.querySelectorAll(".email");
 const facebook = document.querySelectorAll(".facebook");
 const instagram = document.querySelectorAll(".instagram");
-const pinterest = document.querySelectorAll(".pinterest");
 
 email.forEach(openEmail);
 facebook.forEach(openFacebook);
 instagram.forEach(openInstagram);
-pinterest.forEach(openPinterest);
 
 function openEmail(one) {
     one.addEventListener("click", function () {
@@ -338,18 +344,12 @@ function openEmail(one) {
 
 function openFacebook(one) {
     one.addEventListener("click", function () {
-        location.href = "https://www.facebook.com";
+        window.open("https://www.facebook.com/neda.rahimi.161009", '_blank');
     });
 }
 
 function openInstagram(one) {
     one.addEventListener("click", function () {
-        location.href = "https://www.instagram.com/rahimineda.art/";
-    });
-}
-
-function openPinterest(one) {
-    one.addEventListener("click", function () {
-        location.href = "https://www.pinterest.com";
+        window.open("https://www.instagram.com/rahimineda.art/", '_blank');
     });
 }
