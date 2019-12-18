@@ -478,6 +478,7 @@ ul {
     margin-left: auto;
     width: 150px;
     align-items: center;
+    z-index: 1000;
 
 }
 
