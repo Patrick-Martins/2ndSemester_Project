@@ -42,33 +42,38 @@ function init() {
 }
 
 function getContactDataFooter() {
+    //fetching contact info
     fetch("http://pjmelite.dk/KEA_2Semester/2Sem_Project/wp_2ndSemProj/wp-json/wp/v2/posts/17?_embed").then(res => res.json()).then(arrangeFooter);
 }
-
+//removing unneccessary information so that only the contact information appears in the footer
 function arrangeFooter(contact) {
     document.querySelector(".footer-contact-info").innerHTML = contact.content.rendered;
+    //removes
     document.querySelector(".footer-contact-info .location").remove();
 
 }
 
 function getContactData() {
+   //fetching the data of the contact page
     fetch("http://pjmelite.dk/KEA_2Semester/2Sem_Project/wp_2ndSemProj/wp-json/wp/v2/posts/17?_embed").then(res => res.json()).then(organize);
 }
 
 function getAboutData() {
+    //fetching the data of the about page
     fetch("http://pjmelite.dk/KEA_2Semester/2Sem_Project/wp_2ndSemProj/wp-json/wp/v2/posts/13?_embed").then(res => res.json()).then(organize);
 }
 
 function organize(stuff) {
+    //adding the text content to the about page and the contact page.
 
-    if (stuff.id == 13) {
+    if (stuff.id == 13) {//about page
         const container = document.querySelector(".about-container");
         const image = document.querySelector(".about-image");
         const imgPath = stuff._embedded["wp:featuredmedia"][0].media_details.sizes.full.source_url;
 
         image.setAttribute("src", imgPath);
         container.innerHTML = stuff.content.rendered;
-    } else if (stuff.id == 17) {
+    } else if (stuff.id == 17) {//contact page
         document.querySelector(".contact-info").innerHTML = stuff.content.rendered;
     }
 
