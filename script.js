@@ -289,24 +289,34 @@ function arrangeFooter(contact) {
 
 
 
-
+//select hamburguer btn and body
 const hamburguerBTN = document.getElementById("hamburguer");
 const body = document.querySelector("body");
 
+//if the icon hamburguerBTN is clicked it will call the function openNav
 hamburguerBTN.addEventListener("click", openNav);
 
 function openNav() {
-    document.querySelector(".sidenav").style.width = "100%"
+
+    //the width of the sidenav goes to 100% now
+    document.querySelector(".sidenav").style.width = "100%";
+     //remove the current event listener of the hamburguer button
     hamburguerBTN.removeEventListener("click", openNav);
+    //add a new event listener that calls function closeNav when the button is clicked
     hamburguerBTN.addEventListener("click", closeNav);
+    //change the source of the image of the hamburguerbtn to a back arrow icon
     hamburguerBTN.src = "Assets/icones/arrow_back.svg";
 
 }
 
 function closeNav() {
+    //the width of the sidenav goes to 0 now
     document.querySelector(".sidenav").style.width = "0";
+     //remove the current event listener of the hamburguer button
     hamburguerBTN.removeEventListener('click', closeNav);
+    //add a new event listener that calls function openNav when the button is clicked
     hamburguerBTN.addEventListener("click", openNav);
+    //change the source of the image of the hamburguerbtn to a hamburguer icon
     hamburguerBTN.src = "Assets/icones/burger_menu.svg";
 }
 
@@ -320,13 +330,13 @@ shopBTN2.addEventListener("click", function () {
     location.href = "shop.html?category=7";
 })
 
-
+//if the last 10 characters of the url page are "index.html" then it will execute what is inside the condition
 if (window.location.href.substr(-10) == "index.html") {
     const moreAboutBTN = document.querySelector(".moreabout-button");
     const moreGalleryBTN = document.getElementById("moreGalleryBTN");
     const moreShopBTN = document.getElementById("moreShopBTN");
 
-
+//add eventListeners to to these buttons that are only in the home page "index.html"
     moreAboutBTN.addEventListener("click", function () {
         location.href = "about.html?post=13";
     })
@@ -346,6 +356,7 @@ const email = document.querySelectorAll(".email");
 const facebook = document.querySelectorAll(".facebook");
 const instagram = document.querySelectorAll(".instagram");
 
+//since there are many elements that contain the class email, facebook and instagram that means that the constants email, facebook and instagram are arrays. Therefore a forEach method is used to go through all the elements in each array and execute a function that adds an event listener to each one
 email.forEach(openEmail);
 facebook.forEach(openFacebook);
 instagram.forEach(openInstagram);
